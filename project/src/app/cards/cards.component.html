@@ -1,0 +1,49 @@
+<app-header
+  (sort)="sortOrderCheck($event)"
+  (searchEvent)="searching($event)"
+  (filterKey)="filterSearch($event)"
+></app-header>
+<div class="">
+  <div class="row cardRow">
+    <div class="col-md-3 col-xs-12 cardColumn" *ngFor="let product of products">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{ product.image }}"
+          alt="Card image cap"
+        />
+        <div class="overlay">
+          <h6>{{ product.name }}</h6>
+
+          <span
+            >id: {{ product.id }} created: {{ product.created | date: "y" }}
+          </span>
+        </div>
+        <div class="card-body">
+          <table>
+            <tr>
+              <td>STATUS</td>
+              <td>{{ product.status }}</td>
+            </tr>
+            <tr>
+              <td>SPECIES</td>
+              <td>{{ product.species }}</td>
+            </tr>
+            <tr>
+              <td>GENDER</td>
+              <td>{{ product.gender }}</td>
+            </tr>
+            <tr>
+              <td>ORIGIN</td>
+              <td>{{ product.origin.name }}</td>
+            </tr>
+            <tr>
+              <td>LAST LOCATION</td>
+              <td>{{ product.location.name }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
